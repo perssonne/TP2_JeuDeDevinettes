@@ -2,7 +2,6 @@
 #Créé le 31/08/23
 #TP2 (jeu de devinette)
 
-
 import random
 
 
