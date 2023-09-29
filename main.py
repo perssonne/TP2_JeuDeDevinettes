@@ -6,7 +6,9 @@ import random
 
 
 def jeu():      #Définir la fonction
+
     bornes=str(input('Voulez-vous choisir vous-même l intervalle du nombre à deviner? (y/n)'))      #Définition des bornes
+
     if bornes == ('y'):     #Bornes personnalisées
         borne_minimale=int(input('Quelle sera la borne minimale?'))
         borne_maximale=int(input('Quelle sera la borne maximale?'))
@@ -41,5 +43,7 @@ def jeu():      #Définir la fonction
         else:       #En cas d'erreur la boucle continue
             print("Erreur")
 
+
 print('Bienvenue dans ce jeu de devinette.')        #Phrase d'accueil
+
 jeu()       #Début de la fonction
