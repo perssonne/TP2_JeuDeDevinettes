@@ -4,46 +4,64 @@
 
 import random
 
+# Définir la fonction
+def jeu():
 
-def jeu():      #Définir la fonction
+    # Définition des bornes
+    bornes=str(input('Voulez-vous choisir vous-même l intervalle du nombre à deviner? (y/n)'))
 
-    bornes=str(input('Voulez-vous choisir vous-même l intervalle du nombre à deviner? (y/n)'))      #Définition des bornes
-
-    if bornes == ('y'):     #Bornes personnalisées
+    # Bornes personnalisées
+    if bornes == ('y'):
         borne_minimale=int(input('Quelle sera la borne minimale?'))
         borne_maximale=int(input('Quelle sera la borne maximale?'))
-    elif bornes == ('n'):   #Bornes par défaut
+
+    # Bornes par défaut
+    elif bornes == ('n'):
         borne_minimale=0
         borne_maximale=100
+
+    # En cas d'erreur il faut relancer le jeu
     else:
-        print('Erreur')     #En cas d'erreur il faut relancer le jeu
+        print('Erreur')
 
-    chiffre_aléatoire = random.randint(borne_minimale,borne_maximale)       #Choix du nombre a deviner
+    # Choix du nombre a deviner
+    chiffre_aléatoire = random.randint(borne_minimale,borne_maximale)
     print(f"L'ordinateur a choisi un nombre entre {borne_minimale} et {borne_maximale}.")
-    nb_essais=1     #Nombre d'essais ajusté
+    # Nombre d'essais ajusté
+    nb_essais = 1
 
-    while True:     #Boucle while
-
+    while True:
         essai = int(input("Entrez votre essai:"))
 
         if essai > chiffre_aléatoire:
             print("Trop grand.")
-            nb_essais=nb_essais+1
+            nb_essais = nb_essais + 1
         elif essai < chiffre_aléatoire:
             print("Trop petit.")
-            nb_essais=nb_essais+1
-        elif essai==chiffre_aléatoire:      #Nombre trouvé!
-            print("Vous avez réussi en",nb_essais,"essais. Bravo!")
-            quit=str(input('Voulez-vous refaire une partie? (y/n)'))        #Rejouer (yes/no)
-            if quit == ('y'):       #Nouvelle partie
+            nb_essais = nb_essais + 1
+        # Nombre trouvé!
+        elif essai == chiffre_aléatoire:
+            print("Vous avez réussi en", nb_essais, "essais. Bravo!")
+            # Rejouer (yes/no)
+            quit = str(input('Voulez-vous refaire une partie? (y/n)'))
+            # Nouvelle partie
+            if quit == ('y'):
                 jeu()
-            elif quit == ('n'):     #Fin du jeu
+                break
+            # Fin du jeu
+            elif quit == ('n'):
                 print('Merci et au revoir.')
-                break       #Fin de la boucle
-        else:       #En cas d'erreur la boucle continue
+                False
+                # Fin de la boucle
+                break
+
+        # En cas d'erreur la boucle continue
+        else:
             print("Erreur")
 
 
-print('Bienvenue dans ce jeu de devinette.')        #Phrase d'accueil
+# Phrase d'accueil
+print('Bienvenue dans ce jeu de devinette.')
 
-jeu()       #Début de la fonction
+# Début de la fonction
+jeu()
